@@ -8,6 +8,10 @@ router.post('/get_link', async (req, res) => {
     const { from } = req.body
 
     const existing = await Link.findOne({ code: from })
+    
+    existing.clicks++
+    existing.save()
+
     if (existing) return res.json({ link: existing })
     
     res.status(200).json({ link: ''})

@@ -6,7 +6,7 @@ const schema = new Schema({
   code: {type: String, required: true, unique: true},
   date: {type: Date, default: Date.now},
   private: {type: Boolean},
-  clicks: [{ type: Types.ObjectId, ref: 'Click' }]
+  clicks: {type: Number, required: true, default: 0}
 })
 
 module.exports = model('Link', schema)
