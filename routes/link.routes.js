@@ -4,18 +4,8 @@ const router = Router()
 const shortid = require('shortid');
 const {check, validationResult} = require('express-validator')
 
-router.post('/generate',  [
-  check('from', 'Некорректная ссылка').isURL()
-], async (req, res) => {
+router.post('/generate',  async (req, res) => {
   try {
-    const errors = validationResult(req)
-
-    if (!errors.isEmpty()) {
-      return res.status(400).json({
-        errors: errors.array(),
-        message: 'Недоступный URL'
-      })
-    }
 
     const baseUrl = process.env.BASE_URL
     const { from } = req.body
