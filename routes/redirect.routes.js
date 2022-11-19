@@ -24,10 +24,9 @@ router.post('/get_link', async (req, res) => {
 router.get('/:code', async (req, res) => {
   try {
     const link = await Link.findOne({ code: req.params.code })
-
     if (link) return res.redirect(link.from)
 
-    res.status(404).json('Ссылка не найдена')
+    res.status(200).json('Ok')
   } catch (e) {
     res.status(500).json({ message: 'Что-то пошло не так, попробуйте снова' })
   }

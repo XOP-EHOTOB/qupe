@@ -22,7 +22,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 
 app.use('/api/link', require('./routes/link.routes'))
-app.use('/api/link', require('./routes/redirect.routes'))
+app.use('/', require('./routes/redirect.routes'))
 
 const server = https.createServer(options, app)
 
