@@ -2,7 +2,6 @@ const { Router } = require('express')
 const Link = require('../data/Link')
 const router = Router()
 const shortid = require('shortid');
-const {check, validationResult} = require('express-validator')
 
 router.post('/generate',  async (req, res) => {
   try {
